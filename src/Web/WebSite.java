@@ -1,10 +1,10 @@
 package Web;
 
-import StartingWindow.TextFieldURL;
 import org.jsoup.nodes.Document;
+import StartingWindow.TextFieldURL;
 
 public class WebSite {
-    private static final String URL = getUrl();
+    private static  String URL;
     private static Document document;
     private static boolean URLstatus = true;
 
@@ -14,9 +14,12 @@ public class WebSite {
 
     public static String getUrl() {
 
-        return TextFieldURL.getUrlTextField();
+        return URL;
     }
 
+    public static void setURL() {
+        URL = TextFieldURL.getUrlTextField();
+    }
 
     public static Document getDocument() {
 
@@ -24,13 +27,16 @@ public class WebSite {
     }
 
     public static void setDocument(Document html) {
-       document = html;
+        document = html;
     }
 
     public static void setIsRealUrl(boolean isRealUrl) {
-        URLstatus= isRealUrl;
+        URLstatus = isRealUrl;
     }
+
     public static boolean getIsRealUrl() {
-       return URLstatus;
+        return URLstatus;
+
     }
+
 }

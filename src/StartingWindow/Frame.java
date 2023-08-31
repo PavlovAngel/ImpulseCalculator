@@ -1,7 +1,6 @@
 package StartingWindow;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class Frame extends JFrame {
     static final int WIDTH = 450;
