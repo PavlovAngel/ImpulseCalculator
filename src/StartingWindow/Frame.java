@@ -1,6 +1,7 @@
 package StartingWindow;
 
-import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.*;
 
 public class Frame extends JFrame {
     static final int WIDTH = 450;
@@ -9,6 +10,7 @@ public class Frame extends JFrame {
     static final int LOCATIONY = 300;
     static final String startingWindowsName = "URL Window";
     public static Frame frame;
+
 
     public Frame() {
         this.setBounds(LOCATIONX, LOCATIONY, WIDTH, HEIGHT);
@@ -22,9 +24,9 @@ public class Frame extends JFrame {
         this.setVisible(true);
 
     }
-   
 
-    public  void closeWindow() {
+
+    public static void closeWindow() {
         frame.dispose();
     }
 

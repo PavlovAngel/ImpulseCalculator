@@ -12,7 +12,7 @@ public class TextFieldURL extends JTextField implements MouseListener, KeyListen
     public static TextFieldURL textField = new TextFieldURL();
 
     TextFieldURL() {
-        this.setBounds(-2, -1, 350, 68);
+        this.setBounds(-1, -1, 350, 70);
         this.setBackground(new Color(191, 191, 191));
         this.setToolTipText("Enter URL!");
         this.setFont(new Font("Consolas", Font.BOLD, 18));
@@ -26,6 +26,9 @@ public class TextFieldURL extends JTextField implements MouseListener, KeyListen
     public static String getUrlTextField() {
         return textField.getText();
     }
+    public static void clearTextField(){
+        textField.setText("");
+    }
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -34,7 +37,10 @@ public class TextFieldURL extends JTextField implements MouseListener, KeyListen
 
     @Override
     public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode()==KeyEvent.VK_ENTER) {
+          clearTextField();
 
+        }
     }
 
     @Override
