@@ -6,6 +6,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JTextField;
+import Web.User;
 
 public class TextFieldURL extends JTextField implements MouseListener, KeyListener {
     public static TextFieldURL textField = new TextFieldURL();
@@ -22,10 +23,22 @@ public class TextFieldURL extends JTextField implements MouseListener, KeyListen
 
     }
 
+    public static void setDefaultText() {
+        textField.setText("Enter URL here!");
+    }
+    public static void setErrorText(){
+        textField.setText("Wrong URL!");
+    }
+
+    public static void changeColor(Color color) {
+        textField.setForeground(color);
+    }
+
     public static String getUrlTextField() {
         return textField.getText();
     }
-    public static void clearTextField(){
+
+    public static void clearTextField() {
         textField.setText("");
     }
 
@@ -36,14 +49,16 @@ public class TextFieldURL extends JTextField implements MouseListener, KeyListen
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode()==KeyEvent.VK_ENTER) {
-          clearTextField();
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            User.enterURL();
+            User.tryURL();
 
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
+     
 
     }
 
@@ -56,6 +71,7 @@ public class TextFieldURL extends JTextField implements MouseListener, KeyListen
     public void mousePressed(MouseEvent e) {
 
         this.setText("");
+        TextFieldURL.changeColor(Color.BLACK);
 
     }
 

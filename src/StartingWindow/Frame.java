@@ -8,8 +8,7 @@ public class Frame extends JFrame {
     static final int LOCATIONX = 1200;
     static final int LOCATIONY = 300;
     static final String startingWindowsName = "URL Window";
-    public static Frame frame;
-
+    private static Frame frame;
 
     public Frame() {
         this.setBounds(LOCATIONX, LOCATIONY, WIDTH, HEIGHT);
@@ -24,12 +23,16 @@ public class Frame extends JFrame {
 
     }
 
-
     public static void closeWindow() {
-        frame.dispose();
+        frame.setVisible(false);;
+    }
+    public static void showWindow (){
+        frame.setVisible(true);
     }
 
     public static void openWindow() {
-        frame = new Frame();
+       frame = new Frame();
+      
+
     }
 }

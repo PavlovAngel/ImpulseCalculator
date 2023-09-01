@@ -3,15 +3,17 @@ package Web;
 import org.apache.commons.codec.binary.Base64;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
+
+import Main.Main;
+import MainWindow.TextField;
+import StartingWindow.TextFieldURL;
+
+import java.awt.Color;
 import java.io.IOException;
 
 public class User {
 
     private static final String LOGIN = "shipping:shipping";
-
-    User() {
-
-    }
 
     public static void loginToSite() throws IOException {
         try {
@@ -29,14 +31,32 @@ public class User {
             WebSite.setIsRealUrl(true);
 
         } catch (org.jsoup.HttpStatusException | java.lang.IllegalArgumentException ex) {
+
             WebSite.setIsRealUrl(false);
-            // ex.printStackTrace();
-
-        }
-        if (WebSite.getIsRealUrl() == false) {
-
-        } else {
-
         }
     }
+
+    public static void enterURL() {
+        WebSite.setURL();
+
+        try {
+            User.loginToSite();
+        } catch (IOException ex) {
+            WebSite.setIsRealUrl(false);
+        }
+
+    }
+
+    public static void tryURL() {
+        if (WebSite.getIsRealUrl() == true) {
+            TextFieldURL.changeColor(Color.BLACK);
+        
+            TextFieldURL.setDefaultText();
+        }
+        else{
+            TextFieldURL.changeColor(Color.RED);
+            TextFieldURL.setErrorText();
+        }
+    }
+
 }

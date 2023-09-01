@@ -2,17 +2,12 @@ package Web;
 
 import org.jsoup.nodes.Document;
 import StartingWindow.TextFieldURL;
-
 public class WebSite {
     private static  String URL;
     private static Document document;
     private static boolean URLstatus = true;
 
-    public WebSite() {
-
-    }
-
-    public static String getUrl() {
+public static String getUrl() {
 
         return URL;
     }
