@@ -6,7 +6,9 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JTextField;
+
 import Web.User;
+import Web.WebSite;
 
 public class TextFieldURL extends JTextField implements MouseListener, KeyListener {
     public static TextFieldURL textField = new TextFieldURL();
@@ -16,7 +18,7 @@ public class TextFieldURL extends JTextField implements MouseListener, KeyListen
         this.setBackground(new Color(191, 191, 191));
         this.setToolTipText("Enter URL!");
         this.setFont(new Font("Consolas", Font.BOLD, 18));
-        this.setText("Enter URL here");
+        this.setText("Enter"); // todo "Enter URL here"
         this.setEditable(true);
         this.addKeyListener(this);
         this.addMouseListener(this);
@@ -25,8 +27,10 @@ public class TextFieldURL extends JTextField implements MouseListener, KeyListen
 
     public static void setDefaultText() {
         textField.setText("Enter URL here!");
+       // textField.setText("Enter");
     }
-    public static void setErrorText(){
+
+    public static void setErrorText() {
         textField.setText("Wrong URL!");
     }
 
@@ -50,15 +54,26 @@ public class TextFieldURL extends JTextField implements MouseListener, KeyListen
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-            User.enterURL();
-            User.tryURL();
+            if (!TextFieldURL.getUrlTextField().equals("Enter")){
+
+                User.enterURL();
+                User.tryURL();
+                if (WebSite.getIsRealUrl()) {
+
+                    Frame.openMainWindow();
+                }
+            }
+            else {
+                TextFieldURL.setDefaultText();
+                Frame.openMainWindow();
+            }
 
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-     
+
 
     }
 
