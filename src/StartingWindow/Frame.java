@@ -23,16 +23,23 @@ public class Frame extends JFrame {
 
     }
 
-    public static void closeWindow() {
-        frame.setVisible(false);;
-    }
-    public static void showWindow (){
-        frame.setVisible(true);
-    }
 
     public static void openWindow() {
-       frame = new Frame();
-      
+        frame = new Frame();
 
+
+    }
+
+    public static void openMainWindow() {
+        hideWindow();
+        MainWindow.Frame.openWindow();
+    }
+
+    public static void hideWindow() {
+        frame.setVisible(false);
+    }
+
+    public static void unHideWindow() {
+        frame.setVisible(true);
     }
 }

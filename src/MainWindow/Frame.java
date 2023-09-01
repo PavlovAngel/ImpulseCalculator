@@ -31,4 +31,9 @@ public class Frame extends JFrame {
        mainframe = new Frame();
 
     }
+    public static void openStartingWindow(){
+        mainframe.dispose();
+        StartingWindow.Frame.unHideWindow();
+    }
+
 }

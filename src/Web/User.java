@@ -27,8 +27,8 @@ public class User {
                     .header("Authorization", "Basic " + base64login)
                     .execute();
             WebSite.setDocument(response.parse());
-            System.out.println(WebSite.getDocument().text());
             WebSite.setIsRealUrl(true);
+            System.out.println(WebSite.getDocument().text());
 
         } catch (org.jsoup.HttpStatusException | java.lang.IllegalArgumentException ex) {
 
@@ -48,9 +48,8 @@ public class User {
     }
 
     public static void tryURL() {
-        if (WebSite.getIsRealUrl() == true) {
+        if (WebSite.getIsRealUrl()) {
             TextFieldURL.changeColor(Color.BLACK);
-        
             TextFieldURL.setDefaultText();
         }
         else{

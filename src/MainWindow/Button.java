@@ -30,8 +30,9 @@ public class Button extends JButton implements ActionListener {
     }
 public void actionPerformed(ActionEvent e){
     if(e.getSource()== this){
-    MainWindow.Frame.closeWindow();
-    StartingWindow.Frame.showWindow();
+  MainWindow.Frame.openStartingWindow();
+
+
 
 
 

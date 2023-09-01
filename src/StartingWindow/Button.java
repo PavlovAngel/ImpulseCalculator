@@ -1,6 +1,9 @@
 package StartingWindow;
 
+import Main.Main;
 import Web.User;
+import Web.WebSite;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -26,13 +29,14 @@ public class Button extends JButton implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == this) { 
-          User.enterURL();
-          User.tryURL();
-          StartingWindow.Frame.closeWindow();
-          MainWindow.Frame.openWindow();
+        if (e.getSource() == this) {
+            User.enterURL();
+            User.tryURL();
+           if (WebSite.getIsRealUrl()){
+               Frame.openMainWindow();
+           }
 
-          
+
         }
 
     }
