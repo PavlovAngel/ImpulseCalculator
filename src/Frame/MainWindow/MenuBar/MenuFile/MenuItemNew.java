@@ -1,4 +1,6 @@
-package MainWindow.MenuBar.MenuFile;
+package Frame.MainWindow.MenuBar.MenuFile;
+
+import Frame.MainWindow.MainFrame;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -14,7 +16,7 @@ public class MenuItemNew extends JMenuItem implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this) {
 
-            MainWindow.Frame.openStartingWindow();
+            MainFrame.openStartingWindow();
         }
     }
 

@@ -4,7 +4,7 @@ import org.apache.commons.codec.binary.Base64;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 
-import StartingWindow.TextFieldURL;
+import Frame.StartingWindow.TextFieldURL;
 
 import java.awt.Color;
 import java.io.IOException;
@@ -26,7 +26,6 @@ public class User {
                     .execute();
             WebSite.setDocument(response.parse());
             WebSite.setIsRealUrl(true);
-            System.out.println(WebSite.getDocument().text());
 
         } catch (org.jsoup.HttpStatusException | java.lang.IllegalArgumentException ex) {
 

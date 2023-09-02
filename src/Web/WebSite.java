@@ -1,7 +1,7 @@
 package Web;
 
 import org.jsoup.nodes.Document;
-import StartingWindow.TextFieldURL;
+import Frame.StartingWindow.TextFieldURL;
 public class WebSite {
     private static  String URL;
     private static Document document;

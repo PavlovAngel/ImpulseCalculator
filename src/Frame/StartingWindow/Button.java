@@ -1,27 +1,24 @@
-package StartingWindow;
+package Frame.StartingWindow;
 
-import Main.Main;
 import Web.User;
 import Web.WebSite;
 
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
+import javax.swing.*;
 
 public class Button extends JButton implements ActionListener {
-    static final int WIDTH = 98;
-    static final int HEIGHT = 72;
+    static final int WIDTH = 90;
+    static final int HEIGHT = 70;
 
     Button() {
         this.setText("Confirm");
         this.setSize(WIDTH, HEIGHT);
-        this.setLocation(345, 0);
-        this.setBorderPainted(true);
-        this.setBackground(new Color(218, 218, 218));
-        this.setForeground(new Color(0, 0, 0));
+        this.setLocation(350, 0);
+        this.setBorderPainted(false);
         this.setFont(new Font("Consolas", Font.BOLD, 14));
+        this.setBackground(Color.WHITE);
         this.setFocusable(false);
         this.addActionListener(this);
 
@@ -33,7 +30,11 @@ public class Button extends JButton implements ActionListener {
             User.enterURL();
             User.tryURL();
            if (WebSite.getIsRealUrl()){
-               Frame.openMainWindow();
+               try {
+                   StartingFrame.openMainWindow();
+               } catch (UnsupportedLookAndFeelException ex) {
+                   ex.printStackTrace();
+               }
            }
 
 

@@ -1,4 +1,4 @@
-package MainWindow.MenuBar.MenuFile;
+package Frame.MainWindow.MenuBar.MenuFile;
 
 import javax.swing.*;
 

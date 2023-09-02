@@ -1,10 +1,12 @@
 package Main;
 
-import StartingWindow.Frame;
+import Frame.StartingWindow.StartingFrame;
+
+import javax.swing.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Frame.openWindow();
+    public static void main(String[] args) throws UnsupportedLookAndFeelException {
+        StartingFrame.openWindow();
         
     }
 }

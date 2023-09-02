@@ -1,11 +1,11 @@
-package StartingWindow;
+package Frame.StartingWindow;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 import Web.User;
 import Web.WebSite;
@@ -15,11 +15,12 @@ public class TextFieldURL extends JTextField implements MouseListener, KeyListen
 
     TextFieldURL() {
         this.setBounds(-1, -1, 350, 70);
-        this.setBackground(new Color(191, 191, 191));
+        //this.setBackground(new Color(191, 191, 191));
         this.setToolTipText("Enter URL!");
         this.setFont(new Font("Consolas", Font.BOLD, 18));
         this.setText("Enter"); // todo "Enter URL here"
         this.setEditable(true);
+        this.setBackground(new Color(255, 255, 255));
         this.addKeyListener(this);
         this.addMouseListener(this);
 
@@ -60,12 +61,20 @@ public class TextFieldURL extends JTextField implements MouseListener, KeyListen
                 User.tryURL();
                 if (WebSite.getIsRealUrl()) {
 
-                    Frame.openMainWindow();
+                    try {
+                        StartingFrame.openMainWindow();
+                    } catch (UnsupportedLookAndFeelException ex) {
+                        ex.printStackTrace();
+                    }
                 }
             }
             else {
                 TextFieldURL.setDefaultText();
-                Frame.openMainWindow();
+                try {
+                    StartingFrame.openMainWindow();
+                } catch (UnsupportedLookAndFeelException ex) {
+                    ex.printStackTrace();
+                }
             }
 
         }
