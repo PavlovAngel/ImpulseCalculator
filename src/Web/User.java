@@ -4,8 +4,6 @@ import org.apache.commons.codec.binary.Base64;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 
-import Main.Main;
-import MainWindow.TextField;
 import StartingWindow.TextFieldURL;
 
 import java.awt.Color;

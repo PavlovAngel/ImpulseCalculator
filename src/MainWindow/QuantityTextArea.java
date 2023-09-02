@@ -1,29 +1,32 @@
 package MainWindow;
 
-import StartingWindow.Frame;
-import Web.User;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class TextField extends JTextField implements KeyListener {
-    public static TextField textField = new TextField();
+public class QuantityTextArea extends JTextArea implements KeyListener {
+    static final int WIDTH = 150;
+    static final int HEIGHT = 50;
+    static final int X = 2;
+    static final int Y = 4;
+    public static QuantityTextArea textField = new QuantityTextArea();
 
-    TextField() {
-        this.setBounds(0,0,150,30);
+    QuantityTextArea() {
+        this.setBounds(X, Y, WIDTH, HEIGHT);
         this.setFont(new Font("Consolas", Font.BOLD, 18));
         this.addKeyListener(this);
+        this.setEditable(false);
     }
 
-public static void setTextFieldText(String text){
+    public static void setTextFieldText(String text) {
         textField.setText(text);
     }
+
     @Override
     public void keyTyped(KeyEvent e) {
         if (e.getKeyChar() == KeyEvent.VK_ENTER) {
-           setTextFieldText("click");
+            OrderTextArea.textArea.setText(QuantityTextArea.textField.getText());
 
         }
     }
