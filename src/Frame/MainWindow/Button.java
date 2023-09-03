@@ -36,12 +36,12 @@ public class Button extends JButton implements ActionListener {
             try {
 
                 if (Details.getID().length > 9){
-                    System.out.println(Details.getID()[Details.getID().length-1].substring(89,94));
-                }
-                else   {
                     System.out.println(Details.getID()[Details.getID().length-1].substring(88,93));
                 }
-            } catch (java.lang.ArrayIndexOutOfBoundsException ex) {
+                else   {
+                    System.out.println(Details.getID()[Details.getID().length-1].substring(89,94));
+                }
+            } catch (StringIndexOutOfBoundsException |java.lang.ArrayIndexOutOfBoundsException ex) {
                 QuantityTextArea.textArea.setText("Empty");
 
 
