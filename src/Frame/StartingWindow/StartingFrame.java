@@ -3,6 +3,7 @@ package Frame.StartingWindow;
 import javax.swing.*;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 
+import Data.Details;
 import Frame.ChangeTheme;
 import Frame.MainWindow.MainFrame;
 
@@ -44,6 +45,8 @@ public class StartingFrame extends JFrame {
     public static void openMainWindow() throws UnsupportedLookAndFeelException {
         hideWindow();
         MainFrame.openWindow();
+        Details.setidLine();
+        Details.setID();
     }
 
     public static void hideWindow() {

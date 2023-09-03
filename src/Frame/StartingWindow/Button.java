@@ -29,6 +29,7 @@ public class Button extends JButton implements ActionListener {
         if (e.getSource() == this) {
             User.enterURL();
             User.tryURL();
+
            if (WebSite.getIsRealUrl()){
                try {
                    StartingFrame.openMainWindow();

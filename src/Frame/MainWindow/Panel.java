@@ -12,7 +12,7 @@ public class Panel extends JPanel {
 
     Panel() {
         this.setBounds(X, Y, WIDTH, HEIGHT);
-        this.add(QuantityTextArea.textField);
+        this.add(QuantityTextArea.textArea);
         this.add(new Button());
         this.add(OrderTextArea.textArea);
         this.setBackground(new Color(0, 0, 0, 44));

@@ -1,6 +1,7 @@
 package Frame.MainWindow;
 
 import Data.Details;
+import Web.User;
 import Web.WebSite;
 
 import javax.swing.*;
@@ -27,18 +28,21 @@ public class Button extends JButton implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this) {
             try {
-                Web.User.loginToSite();
-            } catch (IOException | java.lang.ArrayIndexOutOfBoundsException ex) {
-                QuantityTextArea.textField.setText("");
+                User.loginToSite();
+            } catch (IOException | ArrayIndexOutOfBoundsException ex) {
+                QuantityTextArea.textArea.setText("");
 
             }
             try {
 
-                System.out.println(Arrays.toString(Details.QUANTITYARRAY));
-                QuantityTextArea.textField.setText(Details.QUANTITYARRAY[Details.QUANTITYARRAY.length - 1]);
-
+                if (Details.getID().length > 9){
+                    System.out.println(Details.getID()[Details.getID().length-1].substring(89,94));
+                }
+                else   {
+                    System.out.println(Details.getID()[Details.getID().length-1].substring(88,93));
+                }
             } catch (java.lang.ArrayIndexOutOfBoundsException ex) {
-                QuantityTextArea.textField.setText("Empty");
+                QuantityTextArea.textArea.setText("Empty");
 
 
             }
