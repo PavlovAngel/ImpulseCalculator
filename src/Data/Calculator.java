@@ -16,7 +16,7 @@ public class Calculator {
          int currentBoxes;
          int finalBoxes;
 
-        detailPcsInBox = Products.getInBoxQuantity();
+        detailPcsInBox = Integer.parseInt(Products.getInBoxQuantity());
 
         boxes = orderQuantity / detailPcsInBox;
         left = orderQuantity % detailPcsInBox;

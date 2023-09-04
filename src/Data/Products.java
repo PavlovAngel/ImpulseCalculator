@@ -19,8 +19,8 @@ public class Products {
     private static String [] description;
     private static String orderQuantity;
     private static String weight;
-    private static final int inBoxQuantity = 200; //todo from site
-    private static final String URl = "http://192.168.0.57:3000/assets/products/edit/2NwyYDgkh9"; //todo from Database
+    private static String inBoxQuantity ; //todo from Site
+    private static String URl = "http://192.168.0.57:3000/assets/products/edit/n5UPNnVBDi"; //todo from Database
     private static Document productsDocument;
 
     public static void loginToProductsInfo(){
@@ -46,15 +46,10 @@ public class Products {
         String [] array = line.split("value=\"");
         String [] array2 = array[1].split("\"");
 
-        System.out.println(array2[0]);
+        System.out.println(array2[0]); //todo make it in method inBoxQuantity
 
     }
 
-
-
-public static int getInBoxQuantity(){
-    return inBoxQuantity;
-}
 
     public static void setDescription() {
     String parseLine = (WebSite.getDocument().getElementsByClass(descriptionLine).html());
@@ -97,7 +92,12 @@ public static int getInBoxQuantity(){
     public static void setWeight(){
         weight = null; //todo get from site
     }
-
+public static void  setInBoxQuantity(){
+        inBoxQuantity = null;//todo get from document
+}
+public static String getInBoxQuantity(){
+        return inBoxQuantity;
+}
 
 }
 
