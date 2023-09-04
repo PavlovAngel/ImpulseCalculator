@@ -2,7 +2,6 @@ package Frame.MainWindow;
 
 import Data.Calculator;
 import Data.Products;
-import Data.ProductsSite;
 import Frame.MainWindow.TextAreas.DescriptionTextArea;
 import Frame.MainWindow.TextAreas.IdTextArea;
 import Frame.MainWindow.TextAreas.QuantityTextArea;
@@ -38,7 +37,7 @@ public class Button extends JButton implements ActionListener {
                 Products.setName();
                 Products.setQuantity();
                 Calculator.calculate();
-                ProductsSite.loginToProductsInfo();
+                Products.loginToProductsInfo();
             } catch (IOException | ArrayIndexOutOfBoundsException ex) {
                 ex.printStackTrace();
             }
