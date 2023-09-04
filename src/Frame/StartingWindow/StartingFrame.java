@@ -45,8 +45,7 @@ public class StartingFrame extends JFrame {
     public static void openMainWindow() throws UnsupportedLookAndFeelException {
         hideWindow();
         MainFrame.openWindow();
-        Details.setidLine();
-        Details.setID();
+
     }
 
     public static void hideWindow() {

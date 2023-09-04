@@ -1,57 +1,60 @@
 package Data;
 
-import Frame.MainWindow.TextAreas.DescriptionTextArea;
 import Web.WebSite;
 
-import java.util.Arrays;
-import java.util.Locale;
-
 public class Details {
-    public static String IDLINE;
-    public static String[] idArray;
-    public static String description;
-    public static int boxCapacity = 400;
-
-    public static String quantityLine;
-    public static String[] quantityArray;
-
-    public static void setID() {
-        idArray = IDLINE.split("\\n");
-    }
-
-    public static String[] getID() {
-        return idArray;
-    }
-
-    public static void setidLine() {
-        IDLINE = WebSite.getDocument().getElementsByClass(
-                "mdc-layout-grid__cell mdc-layout-grid__cell-" +
-                        "-span-6-tablet mdc-layout-grid__cell--span-8-desktop").html();
+    private static final String descriptionLine = "mdc-layout-grid__cell mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-8-desktop";
+    private static final String[] regex = {"</span><span style=\"padding-right:20px\">","</span>|\\("} ;
+    private static final String quantityLine = "mdc-layout-grid__cell mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-2-desktop mdc-layout-grid--align-right";
+    private static String id;
+    private static String name;
+    private static String [] description;
+    private static String quantity;
+    private static final int pcsInBox = 200;
 
 
-    }
 
-    public static void setQuantityLine() {
-        quantityLine = WebSite.getDocument().getElementsByClass(
-                "mdc-layout-grid__cell mdc-layout-grid__cell--span-1-tablet mdc-layout-grid_" +
-                        "_cell--span-2-desktop mdc-layout-grid--align-right").html();
-    }
-    public static int getQuantity(){
 
-        return 1;
-    }
-
-    public static void setQuantityArray() {
-        quantityArray = quantityLine.split("\\n");
-    }
+public static int getPcsInBox(){
+    return pcsInBox;
+}
 
     public static void setDescription() {
-        String nameClass = (WebSite.getDocument().getElementsByClass("mdc-layout-grid__cell mdc-layout-grid__cell--span-6-tabl" +
-                "et mdc-layout-grid__cell--span-8-desktop").html());
-        String[] array = nameClass.split("</span><span style=\"padding-right:20px\">");
-        String[] array2 = array[array.length-1].split("</span>");
-        description = (array2[0].substring(6));
+    String parseLine = (WebSite.getDocument().getElementsByClass(descriptionLine).html());
+        String[] formatLine = parseLine.split(regex[0]);
+       description = formatLine[formatLine.length-1].split(regex[1]);
+        System.out.println(formatLine[1]);
+
     }
+    public static void setQuantity(){
+        String formatLine = WebSite.getDocument().getElementsByClass(quantityLine).html();
+        String [] quantityArray = formatLine.split("\\n");
+        quantity = quantityArray[quantityArray.length-1];
+        }
+
+    public static String getQuantity(){
+        return quantity ;
+    }
+    public static String [] getDescription(){
+        return description;
+    }
+
+    public static void setId(){
+        id = getDescription()[0].substring(0,5);
+    }
+    public static String getId(){
+
+        return id;
+    }
+
+    public static void setName(){
+        name = getDescription()[0].substring(6);
+    }
+    public static String getName(){
+
+        return name;
+    }
+
 
 }
 

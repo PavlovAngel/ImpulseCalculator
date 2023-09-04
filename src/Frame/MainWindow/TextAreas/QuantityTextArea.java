@@ -1,5 +1,7 @@
 package Frame.MainWindow.TextAreas;
 
+import Data.Details;
+
 import javax.swing.*;
 import java.awt.*;
 

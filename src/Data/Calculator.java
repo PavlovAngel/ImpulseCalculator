@@ -11,14 +11,14 @@ public class Calculator {
     public static void calculate() throws IOException {
         int detailPcsInBox;
         int boxes;
-        int orderQuantity = Integer.parseInt(Details.quantityArray[Details.quantityArray.length - 1]);
+        int orderQuantity = Integer.parseInt(Details.getQuantity());
          int left;
          String myString;
          String boxCounter;
          int currentBoxes;
          int finalBoxes;
 
-        detailPcsInBox = Details.boxCapacity;
+        detailPcsInBox = Details.getPcsInBox();
 
         boxes = orderQuantity / detailPcsInBox;
         left = orderQuantity % detailPcsInBox;

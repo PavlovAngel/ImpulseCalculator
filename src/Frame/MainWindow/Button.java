@@ -1,19 +1,17 @@
 package Frame.MainWindow;
 
+import Data.Calculator;
 import Data.Details;
-import Frame.MainWindow.Labels.DescriptionLabel;
 import Frame.MainWindow.TextAreas.DescriptionTextArea;
 import Frame.MainWindow.TextAreas.IdTextArea;
 import Frame.MainWindow.TextAreas.QuantityTextArea;
 import Web.User;
-import Web.WebSite;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.Arrays;
 
 public class Button extends JButton implements ActionListener {
     static final int WIDTH = 100;
@@ -34,12 +32,12 @@ public class Button extends JButton implements ActionListener {
         if (e.getSource() == this) {
             try {
                 User.loginToSite();
-
-                Details.setQuantityLine();
-                Details.setQuantityArray();
-                Details.setidLine();
-                Details.setID();
                 Details.setDescription();
+                Details.setId();
+                Details.setName();
+                Details.setQuantity();
+                System.out.println(Details.getQuantity());
+                Calculator.calculate();
             } catch (IOException | ArrayIndexOutOfBoundsException ex) {
                 ex.printStackTrace();
                 IdTextArea.textArea.setText("");
@@ -47,15 +45,9 @@ public class Button extends JButton implements ActionListener {
 
             }
             try {
-                DescriptionTextArea.textArea.setText(Details.description);
-                QuantityTextArea.textArea.setText(Details.quantityArray[Details.quantityArray.length - 1]);
-                if (Details.getID().length > 10) {
-                    IdTextArea.textArea.setText(Details.getID()[Details.getID().length - 1].substring(89, 94));
-
-                } else {
-                    IdTextArea.textArea.setText(Details.getID()[Details.getID().length - 1].substring(88, 93));
-
-                }
+                DescriptionTextArea.textArea.setText(Details.getName());
+                QuantityTextArea.textArea.setText(Details.getQuantity());
+                IdTextArea.textArea.setText(Details.getId());
 
             } catch (StringIndexOutOfBoundsException | java.lang.ArrayIndexOutOfBoundsException ex) {
                 ex.printStackTrace();
