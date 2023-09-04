@@ -1,7 +1,8 @@
 package Frame.MainWindow;
 
 import Data.Calculator;
-import Data.Details;
+import Data.Products;
+import Data.ProductsSite;
 import Frame.MainWindow.TextAreas.DescriptionTextArea;
 import Frame.MainWindow.TextAreas.IdTextArea;
 import Frame.MainWindow.TextAreas.QuantityTextArea;
@@ -32,22 +33,19 @@ public class Button extends JButton implements ActionListener {
         if (e.getSource() == this) {
             try {
                 User.loginToSite();
-                Details.setDescription();
-                Details.setId();
-                Details.setName();
-                Details.setQuantity();
-                System.out.println(Details.getQuantity());
+                Products.setDescription();
+                Products.setId();
+                Products.setName();
+                Products.setQuantity();
                 Calculator.calculate();
+                ProductsSite.loginToProductsInfo();
             } catch (IOException | ArrayIndexOutOfBoundsException ex) {
                 ex.printStackTrace();
-                IdTextArea.textArea.setText("");
-
-
             }
             try {
-                DescriptionTextArea.textArea.setText(Details.getName());
-                QuantityTextArea.textArea.setText(Details.getQuantity());
-                IdTextArea.textArea.setText(Details.getId());
+                DescriptionTextArea.textArea.setText(Products.getName());
+                QuantityTextArea.textArea.setText(Products.getOrderQuantity());
+                IdTextArea.textArea.setText(Products.getId());
 
             } catch (StringIndexOutOfBoundsException | java.lang.ArrayIndexOutOfBoundsException ex) {
                 ex.printStackTrace();

@@ -6,7 +6,7 @@ import Frame.StartingWindow.TextFieldURL;
 public class WebSite {
     private static String URL;
     private static Document document;
-    private static boolean URLstatus = true;
+    private static boolean URLStatus = true;
     public static String getUrl() {
 
         return URL;
@@ -26,11 +26,11 @@ public class WebSite {
     }
 
     public static void setIsRealUrl(boolean isRealUrl) {
-        URLstatus = isRealUrl;
+        URLStatus = isRealUrl;
     }
 
     public static boolean getIsRealUrl() {
-        return URLstatus;
+        return URLStatus;
 
     }
 

@@ -1,7 +1,5 @@
 package Data;
 
-import Frame.MainWindow.TextAreas.QuantityTextArea;
-
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.io.IOException;
@@ -11,14 +9,14 @@ public class Calculator {
     public static void calculate() throws IOException {
         int detailPcsInBox;
         int boxes;
-        int orderQuantity = Integer.parseInt(Details.getQuantity());
+        int orderQuantity = Integer.parseInt(Products.getOrderQuantity());
          int left;
          String myString;
          String boxCounter;
          int currentBoxes;
          int finalBoxes;
 
-        detailPcsInBox = Details.getPcsInBox();
+        detailPcsInBox = Products.getInBoxQuantity();
 
         boxes = orderQuantity / detailPcsInBox;
         left = orderQuantity % detailPcsInBox;

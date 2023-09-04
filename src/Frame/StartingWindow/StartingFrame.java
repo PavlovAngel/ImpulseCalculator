@@ -3,11 +3,8 @@ package Frame.StartingWindow;
 import javax.swing.*;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 
-import Data.Details;
 import Frame.ChangeTheme;
 import Frame.MainWindow.MainFrame;
-
-import java.awt.*;
 
 public class StartingFrame extends JFrame {
     static final int WIDTH = 450;
