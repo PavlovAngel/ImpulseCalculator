@@ -1,8 +1,10 @@
 package Frame.MainWindow;
 
+import Frame.MainWindow.Labels.DescriptionLabel;
 import Frame.MainWindow.Labels.IdLabel;
 import Frame.MainWindow.Labels.QuantityLabel;
 import Frame.MainWindow.TextAreas.IdTextArea;
+import Frame.MainWindow.TextAreas.DescriptionTextArea;
 import Frame.MainWindow.TextAreas.QuantityTextArea;
 
 import javax.swing.*;
@@ -20,9 +22,11 @@ public class Panel extends JPanel {
         this.add(QuantityTextArea.textArea);
         this.add(new Button());
         this.add(IdTextArea.textArea);
+        this.add(DescriptionTextArea.textArea);
         this.setBackground(new Color(0, 0, 0, 44));
         this.add(new IdLabel());
         this.add(new QuantityLabel());
+        this.add(new DescriptionLabel());
         this.setLayout(null);
 
 

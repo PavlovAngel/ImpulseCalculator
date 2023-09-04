@@ -1,6 +1,8 @@
 package Frame.MainWindow;
 
 import Data.Details;
+import Frame.MainWindow.Labels.DescriptionLabel;
+import Frame.MainWindow.TextAreas.DescriptionTextArea;
 import Frame.MainWindow.TextAreas.IdTextArea;
 import Frame.MainWindow.TextAreas.QuantityTextArea;
 import Web.User;
@@ -35,6 +37,7 @@ public class Button extends JButton implements ActionListener {
                 Details.setQuantityArray();
                 Details.setidLine();
                 Details.setID();
+                Details.setDescription();
             } catch (IOException | ArrayIndexOutOfBoundsException ex) {
                 ex.printStackTrace();
                 IdTextArea.textArea.setText("");
@@ -42,15 +45,8 @@ public class Button extends JButton implements ActionListener {
 
             }
             try {
-                String test  = Arrays.toString(WebSite.getDocument().getElementsByClass("mdc-layout-grid__cell mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-8-desktop").html().split("\\("));
-
-                String[] aray = test.split("<span style=\"margin-right:20px;min-width:16px\">5</span><span style=\"padding-right:20px\">");
-
-                String[] array2 = aray[1].split(",");
-                System.out.println(test);
-                System.out.println(aray[1].substring(6));
-                System.out.println(array2[0].substring(6));
-                QuantityTextArea.textArea.setText(Details.quantityArray[Details.quantityArray.length-1]);
+                DescriptionTextArea.textArea.setText(Details.description);
+                QuantityTextArea.textArea.setText(Details.quantityArray[Details.quantityArray.length - 1]);
                 if (Details.getID().length > 10) {
                     IdTextArea.textArea.setText(Details.getID()[Details.getID().length - 1].substring(89, 94));
 
