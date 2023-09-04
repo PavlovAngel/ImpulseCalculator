@@ -19,7 +19,7 @@ this.setBounds(0,0,450,20);
         this.add(new MenuView());
         this.add(new MenuOptions());
         this.add(new MenuHelp());
-        this.setBackground(new Color(255, 255, 255, 169));
+        //this.setBackground(new Color(255, 255, 255, 169));
        // this.setLayout(new GridLayout());
     }
 }

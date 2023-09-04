@@ -6,7 +6,7 @@ import java.awt.*;
 
 
     public class ChangeTheme extends DefaultMetalTheme {
-        Color color = new Color(150, 187, 178);
+        Color color = new Color(155, 178, 178);
 
         public ColorUIResource getWindowTitleInactiveBackground() {
             return new ColorUIResource(color);

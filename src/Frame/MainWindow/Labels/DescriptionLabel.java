@@ -5,6 +5,6 @@ import javax.swing.*;
 public class  DescriptionLabel extends JLabel {
     public DescriptionLabel() {
         this.setText("Description");
-        this.setBounds(130, -3, 70, 20);
+        this.setBounds(120, -3, 80, 20);
     }
 }

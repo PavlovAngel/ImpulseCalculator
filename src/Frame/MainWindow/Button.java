@@ -9,6 +9,7 @@ import Web.User;
 import Web.WebSite;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -24,6 +25,7 @@ public class Button extends JButton implements ActionListener {
         this.setBounds(X, Y, WIDTH, HEIGHT);
         this.addActionListener(this);
         this.setText("Click");
+        this.setBackground(Color.WHITE);
 
     }
 

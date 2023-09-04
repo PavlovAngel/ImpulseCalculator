@@ -10,7 +10,7 @@ public class Details {
     public static String IDLINE;
     public static String[] idArray;
     public static String description;
-    private String id;
+    public static int boxCapacity = 400;
 
     public static String quantityLine;
     public static String[] quantityArray;
@@ -36,6 +36,10 @@ public class Details {
                 "mdc-layout-grid__cell mdc-layout-grid__cell--span-1-tablet mdc-layout-grid_" +
                         "_cell--span-2-desktop mdc-layout-grid--align-right").html();
     }
+    public static int getQuantity(){
+
+        return 1;
+    }
 
     public static void setQuantityArray() {
         quantityArray = quantityLine.split("\\n");
@@ -47,9 +51,6 @@ public class Details {
         String[] array = nameClass.split("</span><span style=\"padding-right:20px\">");
         String[] array2 = array[array.length-1].split("</span>");
         description = (array2[0].substring(6));
-        if (array2.length < 1){
-            DescriptionTextArea.textArea.setText("nqma");
-        }
     }
 
 }
