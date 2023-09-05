@@ -1,5 +1,6 @@
 package Data;
 
+import Frame.MainWindow.TextAreas.DescriptionTextArea;
 import Web.WebSite;
 import org.apache.commons.codec.binary.Base64;
 import org.jsoup.Connection;
@@ -7,7 +8,7 @@ import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import java.io.IOException;
-
+import java.util.Map;
 
 
 public class Products {
@@ -19,8 +20,8 @@ public class Products {
     private static String [] description;
     private static String orderQuantity;
     private static String weight;
-    private static String inBoxQuantity ; //todo from Site
-    private static String URl = "http://192.168.0.57:3000/assets/products/edit/n5UPNnVBDi"; //todo from Database
+    private static String inBoxQuantity; //todo from Site
+    private static String URl ; //todo from Database
     private static Document productsDocument;
 
     public static void loginToProductsInfo(){
@@ -42,11 +43,6 @@ public class Products {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        String line = String.valueOf(productsDocument.getElementById("product_box_count"));
-        String [] array = line.split("value=\"");
-        String [] array2 = array[1].split("\"");
-
-        System.out.println(array2[0]); //todo make it in method inBoxQuantity
 
     }
 
@@ -57,7 +53,7 @@ public class Products {
        description = formatLine[formatLine.length-1].split(regex[1]);
 
     }
-    public static void setQuantity(){
+    public static void setOrderQuantity(){
         String formatLine = WebSite.getDocument().getElementsByClass(quantityLine).html();
         String [] quantityArray = formatLine.split("\\n");
         orderQuantity = quantityArray[quantityArray.length-1];
@@ -90,14 +86,46 @@ public class Products {
 
     }
     public static void setWeight(){
-        weight = null; //todo get from site
+        String line = String.valueOf(productsDocument.getElementById("product_gramaj"));
+        String [] array = line.split("value=\"");
+        String [] array2 = array[1].split("\"");
+        weight = array2[0];
     }
 public static void  setInBoxQuantity(){
-        inBoxQuantity = null;//todo get from document
+    String line = String.valueOf(productsDocument.getElementById("product_box_count"));
+    String [] array = line.split("value=\"");
+    String [] array2 = array[1].split("\"");
+    inBoxQuantity = array2[0];
+
 }
+
 public static String getInBoxQuantity(){
+
         return inBoxQuantity;
 }
+public static void settUrl(){
+        inBoxQuantity= null;
+    Map<String, String> details = DataBase.hashMapFromTextFile();
+    for (Map.Entry<String, String> entry : details.entrySet()
+    ) {
+       URl = (entry.getValue());
+        Products.loginToProductsInfo();
+   if (entry.getKey().equals(Products.getId())){
+            Products.setInBoxQuantity();
+
+   }
+   else{
+       DescriptionTextArea.textArea.setText("Enter inBoxQuantity");
+
+
+   }
+
+
+    }
+
+
+}
+
 
 }
 
