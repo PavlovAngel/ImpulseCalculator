@@ -1,7 +1,7 @@
 package Frame.MainWindow.MenuBar.MenuFile;
 
 import Frame.MainWindow.MainFrame;
-import Frame.MainWindow.TextAreas.DescriptionTextArea;
+import Frame.MainWindow.TextAreas.NameTextArea;
 import Frame.MainWindow.TextAreas.IdTextArea;
 import Frame.MainWindow.TextAreas.QuantityTextArea;
 
@@ -22,7 +22,7 @@ public class MenuItemNew extends JMenuItem implements ActionListener {
             MainFrame.openStartingWindow();
             QuantityTextArea.textArea.setText("");
             IdTextArea.textArea.setText("");
-            DescriptionTextArea.textArea.setText("");
+            NameTextArea.textArea.setText("");
         }
     }
 

@@ -22,11 +22,10 @@ public class DataBase {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
 
-                String[] parts = line.split(" : ");
+                String[] parts = line.split(" ");
 
                 id = parts[0];
                 url = parts[1];
-
                 map.put(id, url);
 
             }
@@ -41,6 +40,7 @@ public class DataBase {
                 }
             }
         }
+
         return map;
     }
 }

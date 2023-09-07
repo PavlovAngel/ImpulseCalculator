@@ -1,5 +1,7 @@
 package Data;
 
+import Web.User;
+
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.io.IOException;
@@ -43,4 +45,7 @@ public class Calculator {
         clipboard.setContents(stringSelection, null);
 
     }
+
+
+
 }
