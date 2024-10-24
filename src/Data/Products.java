@@ -55,17 +55,17 @@ public class Products {
     }
 
 
-    public static void setDescription(int count ) {
+    public static void setDescription( ) {
          parseLine = (WebSite.getDocument().getElementsByClass(descriptionLine).html());
          formatLine = parseLine.split(regex[0]);
-        description = formatLine[count].split(regex[1]);
+        description = formatLine[formatLine.length-1].split(regex[1]);
 
     }
 
     public static void setOrderQuantity() {
         String formatLine = WebSite.getDocument().getElementsByClass(quantityLine).html();
         String[] quantityArray = formatLine.split("\\n");
-        orderQuantity = quantityArray[quantityArray.length - 1];
+        orderQuantity = quantityArray[quantityArray.length-1];
     }
 
     public static String getOrderQuantity() {

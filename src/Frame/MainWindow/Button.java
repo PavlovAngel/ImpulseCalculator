@@ -30,26 +30,20 @@ public class Button extends JButton implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        Products.setDescription(1);
+    public void actionPerformed(ActionEvent e){
         if (e.getSource() == this) {
             try {
-                    User.loginToSite();
-                for (int i = 1; i < Products.formatLine.length ; i++) {
+                User.loginToSite();
 
 
-                    Products.setDescription(i);
-                    Products.setId();
-                    Products.setName();
-                    Products.setOrderQuantity();
-                    Products.settUrl();
-                    Products.setWeight();
-                    double weight = (Double.parseDouble(Products.getWeight()) * Double.parseDouble(Products.getOrderQuantity())) * 0.001;
-                    weight1 += weight;
-                    WeightTextArea.textArea.setText(weight1 + " kg");
-                    Calculator.calculate();
-                    System.out.println(Products.getDescription()[0]);
-                }
+                Products.setDescription();
+                Products.setId();
+                Products.setName();
+                Products.settUrl();
+                Products.setWeight();
+                Products.setOrderQuantity();
+                Calculator.calculate();
+
 
             } catch (IOException | ArrayIndexOutOfBoundsException ex) {
                 ex.printStackTrace();
@@ -66,6 +60,8 @@ public class Button extends JButton implements ActionListener {
 
             }
         }
+
+        weight1 = 0;
     }
 
 }

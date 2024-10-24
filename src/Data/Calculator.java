@@ -25,6 +25,7 @@ public class Calculator {
         // finalBoxes += Frame.weight;
         // boxCounter = String.format("Boxes: %d", finalBoxes);
 
+
         if (left > 0 && orderQuantity > detailPcsInBox) {
 
             myString = String.format(" (%d x %d pcs. + 1 x %d pcs. = %d pcs.)%n", boxes, detailPcsInBox, left, orderQuantity);
