@@ -1,6 +1,7 @@
 package Frame.MainWindow;
 
 import Data.Calculator;
+import Data.DataBase;
 import Data.Products;
 import Frame.MainWindow.TextAreas.NameTextArea;
 import Frame.MainWindow.TextAreas.IdTextArea;
@@ -35,7 +36,7 @@ public class Button extends JButton implements ActionListener {
             try {
                 User.loginToSite();
 
-
+                DataBase.hashMapFromTextFile();
                 Products.setDescription();
                 Products.setId();
                 Products.setName();

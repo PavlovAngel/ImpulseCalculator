@@ -13,7 +13,7 @@ public class WebSite {
     }
 
     public static void setURL() {
-        URL = TextFieldURL.getUrlTextField();
+        URL = TextFieldURL.getUrlTextField().replace("edit", "view");
     }
 
     public static Document getDocument() {

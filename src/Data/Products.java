@@ -1,5 +1,6 @@
 package Data;
 
+import Frame.ErrorWindow.ErrorWindow;
 import Frame.MainWindow.Labels.QuantityLabel;
 import Frame.MainWindow.TextAreas.IdTextArea;
 import Frame.MainWindow.TextAreas.NameTextArea;
@@ -30,8 +31,8 @@ public class Products {
     private static String inBoxQuantity; //todo from Site
     private static String URl; //todo from Database
     private static Document productsDocument;
-   private static String parseLine;
-   public static String[] formatLine;
+    private static String parseLine;
+    public static String[] formatLine;
 
     public static void loginToProductsInfo() {
         try {
@@ -55,17 +56,17 @@ public class Products {
     }
 
 
-    public static void setDescription( ) {
-         parseLine = (WebSite.getDocument().getElementsByClass(descriptionLine).html());
-         formatLine = parseLine.split(regex[0]);
-        description = formatLine[formatLine.length-1].split(regex[1]);
+    public static void setDescription() {
+        parseLine = (WebSite.getDocument().getElementsByClass(descriptionLine).html());
+        formatLine = parseLine.split(regex[0]);
+        description = formatLine[formatLine.length - 1].split(regex[1]);
 
     }
 
     public static void setOrderQuantity() {
         String formatLine = WebSite.getDocument().getElementsByClass(quantityLine).html();
         String[] quantityArray = formatLine.split("\\n");
-        orderQuantity = quantityArray[quantityArray.length-1];
+        orderQuantity = quantityArray[quantityArray.length - 1];
     }
 
     public static String getOrderQuantity() {
@@ -128,27 +129,24 @@ public class Products {
             URl = "http://192.168.0.57:3000/assets/products/edit/" + (details.get(Products.getId()));
             Products.loginToProductsInfo();
             Products.setInBoxQuantity();
-            if (Products.getInBoxQuantity() .equals("")){
-                QuantityTextArea.textArea.setText("Enter inBoxQuantity");
+            if (Products.getInBoxQuantity().equals("")) {
                 NameTextArea.textArea.setText(Products.getName());
                 IdTextArea.textArea.setText(Products.getId());
             }
-        }
-        else {
-            NameTextArea.textArea.setForeground(Color.RED);
-            QuantityTextArea.textArea.setText("Product don't exist");
+        } else {
+            ErrorWindow.checkDataBase();
             NameTextArea.textArea.setText(Products.getName());
             IdTextArea.textArea.setText(Products.getId());
+            if (Products.getInBoxQuantity().equals("")) {
+                NameTextArea.textArea.setText(Products.getName());
+                IdTextArea.textArea.setText(Products.getId());
+            }
+
 
         }
-
 
 
     }
-
-
-
-
 }
 
     

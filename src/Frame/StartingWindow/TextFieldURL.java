@@ -18,7 +18,7 @@ public class TextFieldURL extends JTextField implements MouseListener, KeyListen
         //this.setBackground(new Color(191, 191, 191));
         this.setToolTipText("Enter URL!");
         this.setFont(new Font("Consolas", Font.BOLD, 18));
-        this.setText("Enter"); // todo "Enter URL here"
+        this.setText("Enter URL here!"); // todo "Enter URL here"
         this.setEditable(true);
         this.setBackground(new Color(255, 255, 255));
         this.addKeyListener(this);
