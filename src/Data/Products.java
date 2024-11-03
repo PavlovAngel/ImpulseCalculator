@@ -2,9 +2,8 @@ package Data;
 
 import Frame.ErrorWindow.ErrorWindow;
 import Frame.MainWindow.Labels.QuantityLabel;
-import Frame.MainWindow.TextAreas.IdTextArea;
-import Frame.MainWindow.TextAreas.NameTextArea;
-import Frame.MainWindow.TextAreas.QuantityTextArea;
+import Frame.MainWindow.MainFrame;
+import Frame.MainWindow.TextAreas.*;
 import Web.WebSite;
 import org.apache.commons.codec.binary.Base64;
 import org.jsoup.Connection;
@@ -33,6 +32,8 @@ public class Products {
     private static Document productsDocument;
     private static String parseLine;
     public static String[] formatLine;
+    public static Double totalWeight = 0.0;
+    public static int boxes;
 
     public static void loginToProductsInfo() {
         try {
@@ -104,7 +105,17 @@ public class Products {
         String line = String.valueOf(productsDocument.getElementById("product_gramaj"));
         String[] array = line.split("value=\"");
         String[] array2 = array[1].split("\"");
-        weight = array2[0];
+        double currentWeight = Double.parseDouble(String.valueOf(Double.parseDouble(array2[0])))* Double.parseDouble(String.valueOf(Double.parseDouble(getOrderQuantity())))*0.001;
+        weight = currentWeight +" kg";
+        totalWeight +=currentWeight;
+        if (weight.equals("")){
+            WeightTextArea.textArea.setText("");
+         ErrorWindow.checkProductWeight();
+        }
+        else {
+            //WeightTextArea.textArea.setText(getWeight());
+            WeightTextArea.textArea.setText(String.format("%.2f",totalWeight ).replace(",",".") + " kg");
+        }
     }
 
     public static void setInBoxQuantity() {
@@ -118,6 +129,9 @@ public class Products {
     public static String getInBoxQuantity() {
 
         return inBoxQuantity;
+    }
+    public static void setBoxes(){
+
     }
 
     public static void settUrl() {

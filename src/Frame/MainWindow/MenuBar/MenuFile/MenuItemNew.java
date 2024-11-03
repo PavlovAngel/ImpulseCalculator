@@ -1,9 +1,9 @@
 package Frame.MainWindow.MenuBar.MenuFile;
 
+import Data.Calculator;
+import Data.Products;
 import Frame.MainWindow.MainFrame;
-import Frame.MainWindow.TextAreas.NameTextArea;
-import Frame.MainWindow.TextAreas.IdTextArea;
-import Frame.MainWindow.TextAreas.QuantityTextArea;
+import Frame.MainWindow.TextAreas.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -23,6 +23,11 @@ public class MenuItemNew extends JMenuItem implements ActionListener {
             QuantityTextArea.textArea.setText("");
             IdTextArea.textArea.setText("");
             NameTextArea.textArea.setText("");
+            CurrentBoxQuantity.textArea.setText("");
+            WeightTextArea.textArea.setText("");
+            Products.totalWeight = 0.0;
+            Calculator.currentBoxes = 0;
+            Calculator.finalBoxes = 0;
         }
     }
 

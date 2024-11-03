@@ -1,11 +1,6 @@
 package Frame.ErrorWindow;
-import Frame.MainWindow.MainFrame;
 
 import javax.swing.*;
-import javax.swing.event.AncestorEvent;
-import javax.swing.event.AncestorListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 
 public class ErrorWindow extends JOptionPane {
@@ -28,6 +23,8 @@ public class ErrorWindow extends JOptionPane {
     public static void checkDataBase(){
         showMessageDialog(f, "Product is not in database!", "Error",JOptionPane.WARNING_MESSAGE);
     }
-
+public static void checkProductWeight(){
+            showMessageDialog(f,"Input product weight!", "Error", JOptionPane.WARNING_MESSAGE);
+}
 
 }

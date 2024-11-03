@@ -41,9 +41,9 @@ public class Button extends JButton implements ActionListener {
                 Products.setId();
                 Products.setName();
                 Products.settUrl();
-                Products.setWeight();
                 Products.setOrderQuantity();
                 Calculator.calculate();
+                Products.setWeight();
 
 
             } catch (IOException | ArrayIndexOutOfBoundsException ex) {
