@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ImpulseCalculator:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ImpulseCalculator_jar</output-path>
+    <root id="archive" name="ImpulseCalculator.jar">
+      <element id="module-output" name="ImpulseCalculator" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libraries/jsoup-1.14.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libraries/org-apache-commons-codec.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
