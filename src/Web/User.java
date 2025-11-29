@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class User {
 
-    private static final String LOGIN = "shipping:shipping";
+    private static final String LOGIN = "shipping:shipping5385";
 
     public static void loginToSite() throws IOException {
         try {

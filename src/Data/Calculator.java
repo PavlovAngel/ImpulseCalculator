@@ -16,7 +16,7 @@ public class Calculator {
     public static void calculate() {
         int detailPcsInBox;
         int boxes;
-        int boxWeight = 0;
+        double boxWeight = 1.37;
         int orderQuantity = Integer.parseInt(Products.getOrderQuantity());
         int left;
         String myString;
@@ -31,30 +31,31 @@ public class Calculator {
 
                 myString = String.format(" (%d x %d pcs. + 1 x %d pcs. = %d pcs.)%n", boxes, detailPcsInBox, left, orderQuantity);
 
-currentBoxes = boxes + 1;
-            } else if (left == 0) {
+                currentBoxes = boxes + 1;
+            }  else if (left == 0) {
                 myString = String.format(" (%d x %d pcs. = %d pcs.)%n", boxes, detailPcsInBox, orderQuantity);
 
-currentBoxes = boxes;
-            } else {
+                currentBoxes = boxes;
+
+            }
+            else {
                 myString = String.format(" (1 x %d pcs. = %d pcs.)", left, orderQuantity);
-currentBoxes = boxes;
+                currentBoxes = boxes+1;
             }
 
-     finalBoxes +=currentBoxes;
-              CurrentBoxQuantity.textArea.setText(String.valueOf(finalBoxes));
+            finalBoxes += currentBoxes;
+            CurrentBoxQuantity.textArea.setText(String.valueOf(finalBoxes));
 
             StringSelection stringSelection = new StringSelection(myString);
             Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
             clipboard.setContents(stringSelection, null);
 
 
+        } catch (java.lang.ArithmeticException | java.lang.NumberFormatException ex) {
+            ErrorWindow.checkInBoxQuantity();
         }
-        catch (java.lang.ArithmeticException | java.lang.NumberFormatException ex){
-                ErrorWindow.checkInBoxQuantity();
-            }
 
-        }
     }
+}
 
 
